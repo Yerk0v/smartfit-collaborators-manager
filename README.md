@@ -4,7 +4,7 @@ Just imagine how much task does have one traineer around the gym... or imagine i
 
 Soon more news about new functionalities!
 
-Being developed with:
+Stack:
 
 - Spring Boot
 - MySQL 
@@ -12,5 +12,6 @@ Being developed with:
 - Github
 - SonnarQube
 - Trello
+- Selenium
 
 ![smartfit](https://user-images.githubusercontent.com/71664180/172698960-3de82fd1-12ff-4ed3-ae18-53af9b85750c.jpg)
