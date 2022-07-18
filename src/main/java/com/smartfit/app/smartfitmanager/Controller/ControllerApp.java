@@ -3,8 +3,14 @@ package com.smartfit.app.smartfitmanager.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+
 import com.smartfit.app.smartfitmanager.Entity.Colaborador;
+import com.smartfit.app.smartfitmanager.Entity.Insumos;
 import com.smartfit.app.smartfitmanager.Repository.UserRepo;
+import com.smartfit.app.smartfitmanager.Services.InsumoServicio;
+
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -12,7 +18,7 @@ import org.springframework.ui.Model;
 
 @Controller
 
-public class UserController {
+public class ControllerApp {
 
 	@Autowired(required = true)
 	private UserRepo repo;
@@ -34,5 +40,12 @@ public class UserController {
 			return "error";
 		}
 	}
+
+	@RequestMapping("/equipamiento")
+	public String verEquipamiento(Model modelo){
+		List<Insumos> listaInsumos = insumosServicio.listAll();
+
+	}
+
 
 }
