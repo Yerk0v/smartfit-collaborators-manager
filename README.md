@@ -10,7 +10,7 @@ Stack:
 - MySQL 
 - Git
 - Github
-- SonnarQube
+- SonarQube
 - Trello
 - Selenium
 
