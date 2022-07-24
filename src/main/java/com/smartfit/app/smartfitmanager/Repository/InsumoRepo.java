@@ -4,6 +4,5 @@ import com.smartfit.app.smartfitmanager.Entity.Insumos;
 
 public interface InsumoRepo extends JpaRepository<Insumos, Long> {
     
-
 }
     

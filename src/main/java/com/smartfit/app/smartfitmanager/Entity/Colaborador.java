@@ -1,49 +1,78 @@
 package com.smartfit.app.smartfitmanager.Entity;
 
+import java.util.Collection;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 
 @Entity
-@Table(name = "colaboradores")
+@Table(name = "colaboradores", uniqueConstraints = @UniqueConstraint(columnNames = "email"))
 public class Colaborador {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
 
-    @Column(name = "nombre", nullable = false)
-    private String nombre;
+	@Column(name = "nombre")
+	private String nombre;
 
-    @Column(name = "apellido")
-    private String apellido;
+	@Column(name = "apellido")
+	private String apellido;
 
-    @Column(name = "rol")
-    private String rol;
+	private String email;
+	private String password;
+	
+	@ManyToMany(fetch = FetchType.EAGER,cascade = CascadeType.ALL)
+	@JoinTable(
+			name = "colaboradores_roles",
+			joinColumns = @JoinColumn(name = "colaboradores_id",referencedColumnName = "id"),
+			inverseJoinColumns = @JoinColumn(name = "rol_id",referencedColumnName = "id")
+			)
+	private Collection<Rol> roles;
 
-    @Column(name = "email")
-    private String email;
-    
-    @Column(name = "password")
-    private String password;
+	public Long getId() {
+		return id;
+	}
 
-    public Colaborador() {
+	public void setId(Long id) {
+		this.id = id;
+	}
 
-    }
+	public String getNombre() {
+		return nombre;
+	}
 
-    public Colaborador(String nombre, String apellido, String rol, String email,String password) {
-        super();
-        this.nombre = nombre;
-        this.apellido = apellido;
-        this.rol = rol;
-        this.email = email;
-        this.password = password;
-    }
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
 
-    public String getPassword() {
+	public String getApellido() {
+		return apellido;
+	}
+
+	public void setApellido(String apellido) {
+		this.apellido = apellido;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getPassword() {
 		return password;
 	}
 
@@ -51,43 +80,35 @@ public class Colaborador {
 		this.password = password;
 	}
 
-	public Long getId() {
-        return id;
-    }
+	public Collection<Rol> getRoles() {
+		return roles;
+	}
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+	public void setRoles(Collection<Rol> roles) {
+		this.roles = roles;
+	}
 
-    public String getNombre() {
-        return nombre;
-    }
+	public Colaborador(Long id, String nombre, String apellido, String email, String password, Collection<Rol> roles) {
+		super();
+		this.id = id;
+		this.nombre = nombre;
+		this.apellido = apellido;
+		this.email = email;
+		this.password = password;
+		this.roles = roles;
+	}
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
+	public Colaborador(String nombre, String apellido, String email, String password, Collection<Rol> roles) {
+		super();
+		this.nombre = nombre;
+		this.apellido = apellido;
+		this.email = email;
+		this.password = password;
+		this.roles = roles;
+	}
 
-    public String getApellido() {
-        return apellido;
-    }
+	public Colaborador() {
+		
+	}
 
-    public void setApellido(String apellidoString) {
-        this.apellido = apellidoString;
-    }
-
-    public String getRol() {
-        return rol;
-    }
-
-    public void setRol(String rol) {
-        this.rol = rol;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
 }

@@ -14,16 +14,16 @@ public class Insumos {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 
     private long id;
-    @Column(name = "nombre", nullable = false, length = 30)
+    @Column(name = "nombre_insumo", nullable = false, length = 30)
     private String nombre;
 
-    @Column(name = "descripcion", nullable = false, length = 30)
+    @Column(name = "descripcion_insumo", nullable = false, length = 30)
     private String descripcion;
 
-    @Column(name = "unidad", nullable = false, length = 30)
+    @Column(name = "unidad_insumo", nullable = false, length = 30)
     private String unidad;
 
-    @Column(name = "categoria", nullable = false, length = 30)
+    @Column(name = "categoria_insumo", nullable = false, length = 30)
     private String categoria;
     
 

@@ -8,16 +8,31 @@
     <link rel="stylesheet" href="css/login.css">
 </head>
 <body>
-    <div class="cajalogin">
+    <div class="cajalogin" th:href="@{/}">
         <img class="avatar" src="img/smartfit_logo.png" alt="">
         <h1> Inicio de sesión</h1>
-        <form class="col-5" th:action="@{/menu}" th:object="${colaborador}" method="post">
-            <label for="email">Email</label>
-            <input type="text" placeholder="Ingrese correo electronico" th:field="*{email}">
+        <form class="col-5" th:action="@{/login}" method="post">
+
+            <div th:if=${param.error}>
+                <div class="alert alert-danger">Usuario o contraseña
+                    inválidos</div>
+            </div>
+
+            <div th:if=${param.logout}>
+                <div class="alert alert-info">Ha cerrado sesión exitosamente
+                </div>
+            </div>
+
+            <label for="username">Email</label>
+            <input type="text" id="username" name="username" required autofocus="autofocus" placeholder="Ingrese correo electronico">
             <label for="Contraseña">Contraseña</label>
-            <input type="password" placeholder="Ingrese contraseña" th:field="*{password}">
+            <input type="password" id="password" name="password" required autofocus="autofocus" placeholder="Ingrese contraseña">
         <input type="submit" name="login" value="Iniciar Sesion">
-        <a href="">¿Perdiste tu contraseña?</a>
+        
+        <div class="form-group">
+            <span>Si eres nuevo usuario <a th:href="@{/registro}">regístrate
+                    aqui</a></span>
+        </div>
         </form>
     </div>    
 </body>
