@@ -1,75 +1,42 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
-	<head>
-		<meta charset="UTF-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>Registro</title>
-		<link rel="stylesheet" href="css/registro.css">
-	</head>
+<html lang="en" xmlns:th = "http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smartfit Login</title>
+    <link rel="stylesheet" href="css/registro.css">
+</head>
 <body>
-
-
-	<nav class="navbar navbar-inverse navbar-fixed-top">
-		<div class="container">
-			<div class="navbar-header">
-				<button type="button" class="navbar-toggle collapsed"
-					data-toggle="collapse" data-target="#navbar" aria-expanded="false"
-					aria-controls="navbar">
-					<span class="sr-only">Toggle navigation</span> <span
-						class="icon-bar"></span> <span class="icon-bar"></span> <span
-						class="icon-bar"></span>
-				</button>
-				<a class="navbar-brand" th:href="@{/}">Volver al login</a>
+    <div class="cajalogin" th:href="@{/}">
+        <img class="avatar" src="img/smartfit_logo.png" alt="">
+        <h1> Formulario de registro </h1>
+        <form class="col-5" th:action="@{/registro}" method="post" th:object="${Colaborador}">
+            <div class="form-group">
+				<label class="control-label" for="nombre">Nombre</label> <input
+					id="nombre" type="text" class="form-control" th:field="*{nombre}"
+					required autofocus="autofocus">
 			</div>
-		</div>
-	</nav>
-
-	<br>
-	<br>
-
-	<div class="container">
-		<div class="row">
-			<div class="col-md-6 col-md-offset-3">
-				<div th:if=${param.exito}>
-					<div class="alert alert-info">Se ha registrado exitosamente a
-						la aplicación</div>
-				</div>
-				<h1>Regístrate</h1>
-				<form th:action="@{/registro}" method="post" th:object="${Colaborador}">
-					<div class="form-group">
-						<label class="control-label" for="nombre">Nombre : </label> <input
-							id="nombre" type="text" class="form-control" th:field="*{nombre}"
-							required autofocus="autofocus">
-					</div>
-					<div class="form-group">
-						<label class="control-label" for="apellido">Apellido : </label> <input
-							id="apellido" class="form-control" th:field="*{apellido}"
-							required autofocus="autofocus">
-					</div>
-					<div class="form-group">
-						<label class="control-label" for="email">Email : </label> <input
-							id="email" type="email" class="form-control" th:field="*{email}"
-							required autofocus="autofocus">
-					</div>
-					<div class="form-group">
-						<label class="control-label" for="password">Password : </label> <input
-							type="password" id="password" class="form-control" th:field="*{password}"
-							required autofocus="autofocus">
-					</div>
-					<div class="form-group">
-						<button type="submit" class="btn btn-success">Registrar</button>
-						<span>Si estas registrado <a th:href="@{/login}"> Inicia sesión aquí</a></span>
-					</div>
-				</form>
+			<div class="form-group">
+				<label class="control-label" for="apellido">Apellido</label> <input
+					id="apellido" class="form-control" th:field="*{apellido}"
+					required autofocus="autofocus">
 			</div>
-		</div>
-	</div>
-
-	<!-- Latest compiled and minified JavaScript -->
-	<script
-		src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
-		integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
-		crossorigin="anonymous"></script>
+			<div class="form-group">
+				<label class="control-label" for="email">Email</label> <input
+					id="email" type="email" class="form-control" th:field="*{email}"
+					required autofocus="autofocus">
+			</div>
+			<div class="form-group">
+				<label class="control-label" for="password">Password</label> <input
+					type="password" id="password" class="form-control" th:field="*{password}"
+					required autofocus="autofocus">
+			</div>
+			<div class="form-group">
+				<button type="submit" class="btn btn-success">Registrar</button>
+				<span>Si ya estas registrado <a th:href="@{/login}"> Inicia sesión aquí</a></span>
+			</div>
+        </form>
+    </div>    
 </body>
 </html>
