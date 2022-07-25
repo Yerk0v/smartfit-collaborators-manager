@@ -6,33 +6,71 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Main menu</title>
   <link rel="stylesheet" href="css/home.css">
+  <link rel="stylesheet" href="css/infoplanes.css">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
 
 <header>
-  <h1>Smart Fit Colaboradores</h1>
+  <h1>Smartfit Collaborators</h1>
 </header>
 
 <nav>
-  <ul>
-    <li><a href="#">Inicio</a></li>
-    <li><a th:href="@{/salas}">Salas</a></li>
-    <li><a href="#">Planes</a></li>
-    <li><a href="#">Equipamiento</a></li>
+  <ul class="menu-horizontal">
+    <li><a th:href="@{/home}">Inicio</a></li>
+    <li><a th:href="@{/salas}">Salas disponibles</a></li>
+    <li><a th:href="@{/pedirsala}">Reservar sala</a></li>
+    <li><a th:href="@{/registrarsala}">Agregar salas</a></li>
+    <li><a th:href="@{/registrarmaterial}">Equipamiento</a></li>
     <li sec:authorize="isAuthenticated()"><a th:href="@{/logout}">Cerrar sesión</a></li>
   </ul>
   <div class="hide">
     <i class="fa fa-bars" aria-hidden="true"></i> Menu
   </div>
 </nav>
-
-  <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<div class="wrapper">
+  <input type="radio" name="slider" id="tab-1"checked>
+  <input type="radio" name="slider" id="tab-2">
+  <header>
+    <label for="tab-1" class="tab-1">Plan Black</label>
+    <label for="tab-2" class="tab-2">Plan Smart</label>
+    <div class="slider"></div>
+  </header>
+  <div class="card-area">
+    <div class="cards">
+      <div class="row row-1">
+        <div class="price-details">
+          <span class="price">19.900</span>
+          <p>Entrena en cualquiera de nuestros gimnasios en América Latina</p>
+        </div>
+        <ul class="features">
+          
+          <li><i class="fas fa-check"></i><span>Diferenciales:</span></li>
+          <li><i class="fas fa-check"></i><span>-Acceso a otras sedes de la cadena<br><br>
+            -Smart fit Go<br><br>
+            -Acceso a todas las areas del gimnasio<br><br>
+            -Area de peso libre, peso integrado, cardio y clases grupales</span></li>
+        </ul>
+      </div>
+      <div class="row">
+        <div class="price-details">
+          <span class="price">16.900</span>
+          <p>Entrena cuando quieras en tu gimnasio de elección</p>
+        </div>
+        <ul class="features">
+          
+          <li><i class="fas fa-check"></i><span>Diferenciales:</span></li>
+          <li><i class="fas fa-check"></i><span>-Smart fit Go<br><br>
+            -Acceso a todas las areas del gimnasio<br><br>
+            -Area de peso libre, peso integrado, cardio y clases grupales</span></li>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
   <script>
     $(".hide").on('click', function() {
       $("nav ul").toggle('slow');
     })
-  </script>
-
+  </script> 
 </body>
-</html>
