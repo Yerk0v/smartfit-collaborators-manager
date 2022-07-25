@@ -46,7 +46,4 @@ public class LoginController {
 		//modelo.addAttribute("Salas", servicio.listarSalas());
 		return "pedirsala";
 	}
-
-
-
 }
