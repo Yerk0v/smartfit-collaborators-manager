@@ -14,7 +14,7 @@ Stack:
 - Trello
 - Selenium
 
-![smartfit](https://user-images.githubusercontent.com/71664180/172698960-3de82fd1-12ff-4ed3-ae18-53af9b85750c.jpg)
 ![Login](https://user-images.githubusercontent.com/71664180/180708139-863b27bc-3953-4831-9b0f-dff0c80d5514.png)
 ![Menu](https://user-images.githubusercontent.com/71664180/180708164-7a7b7c98-0718-4baf-9fe4-f70396c89216.png)
 ![SalasGithub](https://user-images.githubusercontent.com/71664180/180708199-393a8208-dc92-48e2-814f-748672977663.png)
+![ReservarSala](https://user-images.githubusercontent.com/71664180/180708276-127c21cf-2fa6-44cb-a833-7df235c8e951.png)
