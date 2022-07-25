@@ -6,6 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="css/regismaterial.css">
   <link rel="stylesheet" href="css/home.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <title>Formulario materiales</title>
 </head>
 <body>
@@ -14,13 +15,14 @@
       </header>
       
       <nav>
-        <ul>
-          <li><a href="">Inicio</a></li>
-          <li><a href="">Salas</a></li>
-          <li><a href="">Planes</a></li>
-          <li><a href="">Equipamiento</a></li>
-          <li><a href="">Cerrar sesión</a></li>
-        </ul>
+        <ul class="menu-horizontal">
+            <li><a th:href="@{/home}">Inicio</a></li>
+            <li><a th:href="@{/salas}">Salas disponibles</a></li>
+            <li><a th:href="@{/pedirsala}">Reservar sala</a></li>
+            <li><a th:href="@{/registrarsala}">Agregar salas</a></li>
+            <li><a th:href="@{/registrarmaterial}">Equipamiento</a></li>
+            <li sec:authorize="isAuthenticated()"><a th:href="@{/logout}">Cerrar sesión</a></li>
+          </ul>
         <div class="hide">
           <i class="fa fa-bars" aria-hidden="true"></i> Menu
         </div>
@@ -41,6 +43,11 @@
     <input class="controls" type="number" name="cantidad" id="cantidad" placeholder="Cantidad" min="1">
     <input class="botons" type="submit" value="Registrar">
   </section>
-
+  <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+  <script>
+    $(".hide").on('click', function() {
+      $("nav ul").toggle('slow');
+    })
+  </script> 
 </body>
 </html>
