@@ -17,7 +17,7 @@
 <nav>
   <ul>
     <li><a href="#">Inicio</a></li>
-    <li><a href="#">Salas</a></li>
+    <li><a th:href="@{/salas}">Salas</a></li>
     <li><a href="#">Planes</a></li>
     <li><a href="#">Equipamiento</a></li>
     <li sec:authorize="isAuthenticated()"><a th:href="@{/logout}">Cerrar sesión</a></li>

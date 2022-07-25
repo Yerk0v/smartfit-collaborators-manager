@@ -22,4 +22,10 @@ public class LoginController {
 		modelo.addAttribute("Colaboradors", servicio.listarColaboradors());
 		return "home";
 	}
+
+	@GetMapping("/salas")
+	public String verPaginaDeSalas(Model modelo) {
+		//modelo.addAttribute("Salas", servicio.listarSalas());
+		return "salas";
+	}
 }

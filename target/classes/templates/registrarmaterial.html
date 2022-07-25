@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th = "http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="css/regismaterial.css">
+  <link rel="stylesheet" href="css/home.css">
+  <title>Formulario materiales</title>
+</head>
+<body>
+    <header>
+        <h1>Smartfit Collaborators</h1>
+      </header>
+      
+      <nav>
+        <ul>
+          <li><a href="">Inicio</a></li>
+          <li><a href="">Salas</a></li>
+          <li><a href="">Planes</a></li>
+          <li><a href="">Equipamiento</a></li>
+          <li><a href="">Cerrar sesión</a></li>
+        </ul>
+        <div class="hide">
+          <i class="fa fa-bars" aria-hidden="true"></i> Menu
+        </div>
+      </nav>
+  <section class="form-register">
+    <h4>Registro Material</h4>
+    <input class="controls" type="text" name="material" id="material" placeholder="Material">
+    <select name="Categoria" class="controls">
+        <option value="1"> Categoria </option>
+        <optgroup label="Musculacion"></optgroup>
+        <option value="1"> Pesas </option>
+        <option value="2"> Discos 5KG </option>
+        <optgroup label="Otros"></optgroup>
+        <option value="1"> Cuerda </option>
+        <option value="2"> Caminadora </option>
+        <option value="3"> Trapero </option>
+    </select>
+    <input class="controls" type="number" name="cantidad" id="cantidad" placeholder="Cantidad" min="1">
+    <input class="botons" type="submit" value="Registrar">
+  </section>
+
+</body>
+</html>

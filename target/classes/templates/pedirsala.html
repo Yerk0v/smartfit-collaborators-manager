@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th = "http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="css/regismaterial.css">
+  <link rel="stylesheet" href="css/home.css">
+  <title>Formulario materiales</title>
+</head>
+<body>
+    <header>
+        <h1>Smartfit Collaborators</h1>
+      </header>
+      
+      <nav>
+        <ul>
+          <li><a href="">Inicio</a></li>
+          <li><a href="">Salas</a></li>
+          <li><a href="">Planes</a></li>
+          <li><a href="">Equipamiento</a></li>
+          <li><a href="">Cerrar sesión</a></li>
+        </ul>
+        <div class="hide">
+          <i class="fa fa-bars" aria-hidden="true"></i> Menu
+        </div>
+      </nav>
+  <section class="form-register">
+    <h4>Reservar sala</h4>
+    <input class="controls" type="text" name="nombre" id="nombre" placeholder="Nombre">
+    <input class="controls" type="text" name="apellido" id="apellido" placeholder="Apellido">
+    <select name="Categoria" class="controls" placeholder="Seleccionar sala">
+        <option value="1"> Seleccionar Sala</option>
+        <option value="1"> Sala 1</option>
+        <option value="2"> Sala 2 </option>
+        <option value="2"> Sala 3 </option>
+        <option value="2"> Sala 4 </option>
+        
+    </select>
+    <input class="controls" type="date" name="cantidad" id="cantidad" placeholder="Cantidad" min="1">
+    <input class="controls" type="time" name="cantidad" id="cantidad" placeholder="Cantidad" min="1">
+    <input class="botons" type="submit" value="Registrar">
+  </section>
+
+</body>
+</html>

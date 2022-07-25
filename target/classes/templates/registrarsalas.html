@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th = "http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="css/regismaterial.css">
+  <link rel="stylesheet" href="css/home.css">
+  <title>Formulario materiales
+  </title>
+</head>
+<body>
+    <header>
+        <h1>Smartfit Collaborators</h1>
+      </header>
+      
+      <nav>
+        <ul>
+          <li><a href="">Inicio</a></li>
+          <li><a href="">Salas</a></li>
+          <li><a href="">Planes</a></li>
+          <li><a href="">Equipamiento</a></li>
+          <li><a href="">Cerrar sesión</a></li>
+        </ul>
+        
+      </nav>
+      <section class="form-register">
+        <h4>Registrar Sala</h4>
+        <input class="controls" type="text" name="sala" id="sala" placeholder="Sala">
+        <select name="CategoriaSala" class="controls">
+            <option value="1"> Tipo de Sala </option>
+            <option value="1"> Musculacion </option>
+            <option value="2"> Calentamiento </option>
+            <option value="1"> Yoga</option>
+            <option value="2"> Calistenia </option>
+        </select>
+        <input class="controls" type="number" name="aforo" id="aforo" placeholder="Aforo" min="1">
+        <input class="botons" type="submit" value="Registrar">
+      </section>
+</body>
+</html>
