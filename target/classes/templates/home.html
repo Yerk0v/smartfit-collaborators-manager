@@ -20,7 +20,7 @@
     <li><a href="#">Salas</a></li>
     <li><a href="#">Planes</a></li>
     <li><a href="#">Equipamiento</a></li>
-    <li><a href="#">Cerrar sesión</a></li>
+    <li sec:authorize="isAuthenticated()"><a th:href="@{/logout}">Cerrar sesión</a></li>
   </ul>
   <div class="hide">
     <i class="fa fa-bars" aria-hidden="true"></i> Menu
