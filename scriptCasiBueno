@@ -1,0 +1,196 @@
+USE colegio_kollao;
+
+CREATE TABLE departamento (
+  id_departamento INT PRIMARY KEY,
+  nombre_departamento VARCHAR(50),
+  responsable_departamento VARCHAR(50)
+);
+
+CREATE TABLE proyecto (
+  id INT PRIMARY KEY NOT NULL,
+  codigo INT,
+  descripcion VARCHAR(255),
+  objetivo_general TEXT,
+  persona_responsable VARCHAR(100),
+  proceso_id INT,
+  departamento INT,
+  objetivo INT,
+  nombre VARCHAR(100),
+  incluido BIT
+);
+
+CREATE TABLE objetivos(
+  id INT PRIMARY KEY NOT NULL,
+  departamento INT,
+  tipo VARCHAR(300),
+  subTipo VARCHAR(300),
+  FOREIGN KEY (departamento) REFERENCES departamento(id_departamento)
+);
+
+CREATE TABLE colegio (
+  id_colegio INT PRIMARY KEY,
+  nombre_colegio VARCHAR(100),
+  direccion_colegio VARCHAR(255)
+);
+
+CREATE TABLE actividad (
+  id INT PRIMARY KEY,
+  nombre VARCHAR(255),
+  descripcion VARCHAR(255),
+  fecha_registro DATE,
+  fecha_inicio DATE,
+  fecha_termino DATE,
+  quien_ingresa VARCHAR(255),
+  responsable_ejecucion VARCHAR(255),
+  tipo_actividad VARCHAR(255),
+  ambito VARCHAR(255),
+  centro_costo VARCHAR(255),
+  lugar_fisico VARCHAR(255),
+  ciclo_mejora VARCHAR(255),
+  observacion_control_gestion VARCHAR(255)
+);
+
+CREATE TABLE objetivo_especifico (
+  id_objetivo_especifico INT PRIMARY KEY,
+  descripcion TEXT,
+  id_proyecto INT,
+  id_actividad INT,
+  FOREIGN KEY (id_proyecto) REFERENCES proyecto(id),
+  FOREIGN KEY (id_actividad) REFERENCES actividad(id)
+);
+
+CREATE TABLE recurso (
+  id_recurso INT PRIMARY KEY,
+  fecha_registro DATE,
+  cantidad_solicitada VARCHAR(50),
+  cantidad_recepcionada VARCHAR(50),
+  arrepentido_sol_producto BOOLEAN,
+  autorizacion_recurso BOOLEAN,
+  docunebto_tributario varchar(50)
+);
+
+CREATE TABLE proveedor (
+  id_proveedor INT PRIMARY KEY,
+  nombre_organizacion VARCHAR(255),
+  contacto VARCHAR(50),
+  telefonos VARCHAR(100),
+  direccion VARCHAR(75),
+  sector VARCHAR(50),
+  ciudad VARCHAR(50),
+  pagina_web VARCHAR(255),
+  observaciones VARCHAR(255)
+);
+
+CREATE TABLE objetivos_departamentales (
+  id_objetivo INT PRIMARY KEY,
+  descripcion VARCHAR(100),
+  departamento_id INT,
+  FOREIGN KEY (departamento_id) REFERENCES departamento(id_departamento)
+);
+
+CREATE TABLE objetivo_estrategico (
+  id_objetivo INT PRIMARY KEY,
+  descripcion VARCHAR(255),
+  rango_en_anios int,
+  proyecto_id INT,
+  FOREIGN KEY (proyecto_id) REFERENCES proyecto(id)
+);
+
+CREATE TABLE kpi (
+  id_kpi INT PRIMARY KEY,
+  nombre_kpi VARCHAR(100),
+  descripcion_kpi TEXT,
+  objetivo_kpi TEXT,
+  formula_kpi VARCHAR(255),
+  fuente_datos VARCHAR(100),
+  frecuencia_medicion VARCHAR(50),
+  meta_kpi DECIMAL(10,2),
+  responsable_kpi VARCHAR(100),
+  departamento_id INT,
+  FOREIGN KEY (departamento_id) REFERENCES departamento(id_departamento)
+);
+
+CREATE TABLE modelo (
+  id_modelo INT PRIMARY KEY,
+  nombre_modelo VARCHAR(50)
+);
+
+CREATE TABLE submodelo (
+  id_submodelo INT PRIMARY KEY,
+  nombre_submodelo VARCHAR(50),
+  id_modelo INT,
+  FOREIGN KEY (id_modelo) REFERENCES modelo(id_modelo)
+);
+
+CREATE TABLE situacion_objetivo (
+  id_situacion INT PRIMARY KEY,
+  descripcion VARCHAR(255),
+   objetivo_id INT,
+  FOREIGN KEY (objetivo_id) REFERENCES objetivo_estrategico(id_objetivo)
+);
+
+CREATE TABLE situaciones (
+  id_situacion INT PRIMARY KEY,
+  descripcion VARCHAR(255),
+  impacto VARCHAR(100),
+  importancia VARCHAR(100)
+);
+
+CREATE TABLE procesos (
+  id_gestion_procesos INT AUTO_INCREMENT PRIMARY KEY,
+  id_colegio INT,
+  FOREIGN KEY (id_colegio) REFERENCES colegio(id_colegio)
+);
+
+CREATE TABLE fuentes_informacion (
+  id_fuentes_informacion INT AUTO_INCREMENT PRIMARY KEY,
+  id_colegio INT,
+  FOREIGN KEY (id_colegio) REFERENCES colegio(id_colegio)
+);
+
+CREATE TABLE modelos (
+  id_modelos INT AUTO_INCREMENT PRIMARY KEY,
+  id_colegio INT,
+  FOREIGN KEY (id_colegio) REFERENCES colegio(id_colegio)
+);
+
+CREATE TABLE modelo_procesos (
+  id_modelo_procesos INT AUTO_INCREMENT PRIMARY KEY,
+  id_colegio INT,
+  FOREIGN KEY (id_colegio) REFERENCES colegio(id_colegio)
+);
+
+CREATE TABLE modelo_planificacion_estrategica (
+  id_modelo_planificacion_estrategica INT AUTO_INCREMENT PRIMARY KEY,
+  id_colegio INT,
+  FOREIGN KEY (id_colegio) REFERENCES colegio(id_colegio)
+);
+
+CREATE TABLE pdca (
+  id_ciclo_mejora_continua_pdca INT AUTO_INCREMENT PRIMARY KEY,
+  id_colegio INT,
+  FOREIGN KEY (id_colegio) REFERENCES colegio(id_colegio)
+);
+
+CREATE TABLE gestion (
+  id_gestion INT AUTO_INCREMENT PRIMARY KEY,
+  id_colegio INT,
+  FOREIGN KEY (id_colegio) REFERENCES colegio(id_colegio)
+);
+
+CREATE TABLE Ideas(
+  id INT PRIMARY KEY NOT NULL,
+  departamento INT,
+  objetivo INT,
+  descripcion VARCHAR(200),
+  votos INT,
+  proyecto INT,
+  FOREIGN KEY (departamento) REFERENCES departamento(id_departamento),
+  FOREIGN KEY (objetivo) REFERENCES objetivos(id),
+  FOREIGN KEY (proyecto) REFERENCES proyecto(id)
+);
+
+ALTER TABLE proyecto
+ADD FOREIGN KEY (departamento) REFERENCES departamento(id_departamento),
+ADD FOREIGN KEY (objetivo) REFERENCES objetivos(id);
+
