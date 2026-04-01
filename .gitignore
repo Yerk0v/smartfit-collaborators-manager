@@ -1,0 +1,33 @@
+# Maven / Java
+target/
+*.class
+*.jar
+*.war
+*.ear
+
+# Eclipse / STS
+.classpath
+.project
+.settings/
+.springBeans
+.sts4-cache/
+
+# IntelliJ
+.idea/
+*.iml
+out/
+
+# VS Code
+.vscode/
+
+# Logs
+*.log
+logs/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Temp
+*.swp
+*~
