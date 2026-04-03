@@ -1,5 +1,6 @@
 # Maven / Java
 target/
+dependency-reduced-pom.xml
 *.class
 *.jar
 *.war
@@ -9,6 +10,8 @@ target/
 .classpath
 .project
 .settings/
+.factorypath
+.apt_generated/
 .springBeans
 .sts4-cache/
 
@@ -31,3 +34,5 @@ Thumbs.db
 # Temp
 *.swp
 *~
+*.tmp
+*.bak
