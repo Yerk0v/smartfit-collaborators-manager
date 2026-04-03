@@ -7,7 +7,7 @@ import com.smartfit.app.smartfitmanager.Entity.Colaborador;
 
 @Repository
 
-public interface UserRepo extends JpaRepository<Colaborador,String>{
+public interface UserRepo extends JpaRepository<Colaborador, Long>{
 
 	public Colaborador findByEmail(String email);
 
