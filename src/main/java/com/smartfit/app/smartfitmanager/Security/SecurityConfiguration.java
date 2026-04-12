@@ -19,17 +19,15 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter{
 
 	@Autowired
 	private ColaboradorServicio colaboradorServicio;
-	
-	@Bean
-	public BCryptPasswordEncoder passwordEncoder() {
-		return new BCryptPasswordEncoder();
-	}
+    
+	@Autowired
+	private BCryptPasswordEncoder passwordEncoder;
 	
 	@Bean
 	public DaoAuthenticationProvider authenticationProvider() {
 		DaoAuthenticationProvider auth = new DaoAuthenticationProvider();
 		auth.setUserDetailsService(colaboradorServicio);
-		auth.setPasswordEncoder(passwordEncoder());
+		auth.setPasswordEncoder(passwordEncoder);
 		return auth;
 	}
 	
