@@ -43,14 +43,13 @@
           <span class="price">19.900</span>
           <p>Entrena en cualquiera de nuestros gimnasios de América Latina</p>
         </div>
-        <ul class="features">
-          
-          <li><i class="fas fa-check"></i><span>Diferenciales:</span></li>
-          <li><i class="fas fa-check"></i><span>-Acceso a otras sedes de la cadena<br><br>
-            -Smart fit Go<br><br>
-            -Acceso a todas las areas del gimnasio<br><br>
-            -Area de peso libre, peso integrado, cardio y clases grupales</span></li>
-        </ul>
+      <ul class="features">
+        <li><i class="fas fa-check"></i><span>Diferenciales:</span></li>
+        <li><i class="fas fa-check"></i><span>Acceso a otras sedes de la cadena</span></li>
+        <li><i class="fas fa-check"></i><span>Smart fit Go</span></li>
+        <li><i class="fas fa-check"></i><span>Acceso a todas las areas del gimnasio</span></li>
+        <li><i class="fas fa-check"></i><span>Area de peso libre, peso integrado, cardio y clases grupales</span></li>
+      </ul>
       </div>
       <div class="row">
         <div class="price-details">
@@ -58,11 +57,11 @@
           <p>Entrena cuando quieras en tu gimnasio de elección</p>
         </div>
         <ul class="features">
-          
           <li><i class="fas fa-check"></i><span>Diferenciales:</span></li>
-          <li><i class="fas fa-check"></i><span>-Smart fit Go<br><br>
-            -Acceso a todas las areas del gimnasio<br><br>
-            -Area de peso libre, peso integrado, cardio y clases grupales</span></li>
+          <li><i class="fas fa-check"></i><span>Smart fit Go</span></li>
+          <li><i class="fas fa-check"></i><span>Acceso a todas las areas del gimnasio</span></li>
+          <li><i class="fas fa-check"></i><span>Area de peso libre, peso integrado, cardio y clases grupales</span></li>
+        </ul>
       </div>
     </div>
   </div>
@@ -73,4 +72,13 @@
       $("nav ul").toggle('slow');
     })
   </script> 
+  <!-- LiveReload (dev only). Included only when `spring.devtools.livereload.enabled` is true -->
+  <script th:if="${@environment.getProperty('spring.devtools.livereload.enabled') == 'true'}" th:inline="none">
+    (function() {
+      var s = document.createElement('script');
+      s.async = true;
+      s.src = 'http://localhost:35729/livereload.js?snipver=1';
+      document.head.appendChild(s);
+    })();
+  </script>
 </body>

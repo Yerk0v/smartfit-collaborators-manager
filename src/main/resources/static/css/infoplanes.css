@@ -129,13 +129,15 @@ header .slider{
   font-size: 15px;
   list-style: none;
   margin-bottom: 10px;
-  align-items: center;
+  align-items: flex-start;
 }
 .features li i{
   background: linear-gradient(#D5A3FF 0%, #77A5F8 100%);
   background-clip: text;
  -webkit-background-clip: text;
  -webkit-text-fill-color: transparent;
+  margin-top: 3px;
+  flex-shrink: 0;
 }
 .features li span{
   margin-left: 10px;
@@ -156,3 +158,4 @@ header .slider{
 .wrapper button:hover{
   transform: scale(0.98);
 }
+
