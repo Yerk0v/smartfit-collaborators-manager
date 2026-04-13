@@ -22,28 +22,4 @@ public class LoginController {
 		modelo.addAttribute("Colaboradors", servicio.listarColaboradors());
 		return "home";
 	}
-
-	@GetMapping("/salas")
-	public String verPaginaDeSalas(Model modelo) {
-		//modelo.addAttribute("Salas", servicio.listarSalas());
-		return "salas";
-	}
-
-	@GetMapping("/registrarmaterial")
-	public String verPaginaDeRegistrarMaterial(Model modelo) {
-		//modelo.addAttribute("Salas", servicio.listarSalas());
-		return "registrarmaterial";
-	}
-
-	@GetMapping("/registrarsalas")
-	public String verPaginaDeRegistrarSala(Model modelo) {
-		//modelo.addAttribute("Salas", servicio.listarSalas());
-		return "registrarsalas";
-	}
-
-	@GetMapping("/pedirsala")
-	public String verPaginaDePedirSala(Model modelo) {
-		//modelo.addAttribute("Salas", servicio.listarSalas());
-		return "pedirsala";
-	}
 }

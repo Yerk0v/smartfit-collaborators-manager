@@ -41,6 +41,27 @@ ul li a {
   text-decoration: none;
 }
 
+.logout-item {
+  padding: 0;
+}
+
+.logout-form {
+  display: inline;
+}
+
+.logout-button {
+  background: transparent;
+  border: 0;
+  color: rgb(0, 0, 0);
+  cursor: pointer;
+  font: inherit;
+  padding: 20px;
+}
+
+.logout-button:hover {
+  background: #444040;
+}
+
 .hide {
   padding: 16px;
   font-size: 22px;
@@ -52,6 +73,12 @@ ul li a {
 
 @media (max-width: 768px) {
   ul li {
+    width: 100%;
+    padding: 15px;
+    text-align: left;
+  }
+
+  .logout-button {
     width: 100%;
     padding: 15px;
     text-align: left;
