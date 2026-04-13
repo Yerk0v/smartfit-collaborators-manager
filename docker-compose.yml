@@ -1,0 +1,30 @@
+services:
+  db:
+    image: mysql:8.0
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpass
+      MYSQL_DATABASE: smartfit_db
+      MYSQL_USER: smartfit
+      MYSQL_PASSWORD: smartfitpass
+    ports:
+      - "3306:3306"
+    volumes:
+      - db_data:/var/lib/mysql
+
+  app:
+    build: .
+    restart: unless-stopped
+    ports:
+      - "8080:8080"
+    environment:
+      SPRING_DATASOURCE_URL: "jdbc:mysql://db:3306/smartfit_db?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC"
+      SPRING_DATASOURCE_USERNAME: "smartfit"
+      SPRING_DATASOURCE_PASSWORD: "smartfitpass"
+      BOOTSTRAP_ADMIN_EMAIL: "admin@local.dev"
+      BOOTSTRAP_ADMIN_PASSWORD: "admin123"
+    depends_on:
+      - db
+
+volumes:
+  db_data:
